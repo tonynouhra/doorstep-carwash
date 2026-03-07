@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doorstep Car Wash - Professional Car Wash at Your Doorstep | Koura, Lebanon</title>
+  <meta name="description" content="Professional mobile car wash service in Koura District, Lebanon. Book via WhatsApp in 60 seconds. Starting from $5. We come to your driveway with our own water and equipment."/>
+  <meta name="keywords" content="car wash, Koura, Lebanon, mobile car wash, doorstep, Amioun, Beshmizzine, Kousba, WhatsApp booking"/>
+  <meta property="og:title" content="Doorstep Car Wash - Koura, Lebanon"/>
+  <meta property="og:description" content="Professional car wash at your doorstep. Book via WhatsApp. Starting $5."/>
+  <meta property="og:type" content="website"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>"/>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+
+const WA_NUM = "96171001417";
+const WA_LINK = "https://wa.me/96171001417?text=Hi!%20I'd%20like%20to%20book%20a%20car%20wash.";
+const WISH_NUM = "71 001 417";
+const PHONE_DISPLAY = "71 001 417";
+const openWA = (msg) => { const url = msg ? `https://wa.me/${WA_NUM}?text=${encodeURIComponent(msg)}` : WA_LINK; window.open(url, "_blank", "noopener,noreferrer"); };
+
+const C = {
+  blue: "#0A7EA4", blueDark: "#086B8A", blueLight: "#E8F4F8",
+  green: "#2D9B6E", greenLight: "#E6F5F0", greenDark: "#1F7A54",
+  white: "#FFFFFF", charcoal: "#2C3E50", gray: "#7F8C8D",
+  grayLight: "#F5F7FA", whatsapp: "#25D366",
+};
+
+const LogoIcon = ({ size = 36 }) => {
+  const uid = `li${size}${Math.random().toString(36).slice(2,6)}`;
+  return (
+    <svg width={size} height={size * 1.15} viewBox="0 0 100 115" fill="none">
+      <defs><linearGradient id={uid} x1="50" y1="5" x2="50" y2="110" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#1A9CC7"/><stop offset="100%" stopColor="#0868A0"/></linearGradient></defs>
+      <path d="M50 5C25 5 5 28 5 50c0 28 45 60 45 60s45-32 45-60C95 28 75 5 50 5z" fill={`url(#${uid})`}/>
+      <circle cx="50" cy="48" r="30" fill="#fff" opacity=".95"/>
+      <g transform="translate(28,36)"><path d="M6 16l4-10c1-2 3-4 5-4h14c2 0 4 2 5 4l4 10h2c2 0 4 2 4 4v4c0 2-2 4-4 4H4c-2 0-4-2-4-4v-4c0-2 2-4 4-4z" fill="#2D9B6E"/><path d="M12 15l3-8c.5-1.5 1.5-2 3-2h3v10z" fill="#fff" opacity=".85"/><path d="M23 5h3c1.5 0 2.5.5 3 2l3 8h-9z" fill="#fff" opacity=".85"/><circle cx="10" cy="28" r="5" fill="#3A3A3A"/><circle cx="10" cy="28" r="2.5" fill="#666"/><circle cx="34" cy="28" r="5" fill="#3A3A3A"/><circle cx="34" cy="28" r="2.5" fill="#666"/></g>
+    </svg>
+  );
+};
+
+const Logo1 = ({ size = 80, showText = true, white = false }) => {
+  const s = size / 80;
+  const uid = `pg${size}${Math.random().toString(36).slice(2,6)}`;
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: showText ? 6 * s : 0 }}>
+      <svg width={size} height={size * 1.15} viewBox="0 0 100 115" fill="none">
+        <defs><linearGradient id={uid} x1="50" y1="5" x2="50" y2="110" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#1A9CC7"/><stop offset="60%" stopColor="#0A7EA4"/><stop offset="100%" stopColor="#0868A0"/></linearGradient></defs>
+        <path d="M50 5C25 5 5 28 5 50c0 28 45 60 45 60s45-32 45-60C95 28 75 5 50 5z" fill={`url(#${uid})`}/>
+        <circle cx="50" cy="48" r="30" fill="#fff" opacity=".95"/>
+        <g transform="translate(28,36)"><path d="M6 16l4-10c1-2 3-4 5-4h14c2 0 4 2 5 4l4 10h2c2 0 4 2 4 4v4c0 2-2 4-4 4H4c-2 0-4-2-4-4v-4c0-2 2-4 4-4z" fill="#2D9B6E"/><path d="M12 15l3-8c.5-1.5 1.5-2 3-2h3v10z" fill="#fff" opacity=".85"/><path d="M23 5h3c1.5 0 2.5.5 3 2l3 8h-9z" fill="#fff" opacity=".85"/><circle cx="10" cy="28" r="5" fill="#3A3A3A"/><circle cx="10" cy="28" r="2.5" fill="#666"/><circle cx="34" cy="28" r="5" fill="#3A3A3A"/><circle cx="34" cy="28" r="2.5" fill="#666"/><rect x="1" y="18" width="4" height="3" rx="1" fill="#F4D03F" opacity=".8"/><rect x="39" y="18" width="4" height="3" rx="1" fill="#F4D03F" opacity=".8"/></g>
+        <path d="M20 75Q35 68 50 75Q65 82 80 75" stroke="#fff" strokeWidth="2" fill="none" opacity=".3"/>
+      </svg>
+      {showText && <div style={{ textAlign: "center", marginTop: -2 * s }}><p style={{ fontFamily: "Poppins,sans-serif", fontSize: 16 * s, fontWeight: 700, color: white ? "#fff" : C.charcoal, margin: 0, lineHeight: 1.2 }}>Doorstep</p><p style={{ fontFamily: "Poppins,sans-serif", fontSize: 12 * s, fontWeight: 600, color: white ? "rgba(255,255,255,.75)" : C.green, margin: 0, letterSpacing: .5 }}>Car Wash</p></div>}
+    </div>
+  );
+};
+
+function useReveal() {
+  const ref = useRef(null);
+  const [v, setV] = useState(false);
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setV(true); }, { threshold: 0.12 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return [ref, v];
+}
+function Reveal({ children, delay = 0 }) {
+  const [ref, v] = useReveal();
+  return <div ref={ref} style={{ opacity: v ? 1 : 0, transform: v ? "translateY(0)" : "translateY(30px)", transition: `all .7s cubic-bezier(.22,1,.36,1) ${delay}s` }}>{children}</div>;
+}
+function Counter({ end, suffix = "", prefix = "" }) {
+  const [c, setC] = useState(0); const ref = useRef(null); const started = useRef(false);
+  useEffect(() => { const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting && !started.current) { started.current = true; let v = 0; const step = end / 60; const t = setInterval(() => { v += step; if (v >= end) { setC(end); clearInterval(t); } else setC(Math.floor(v)); }, 16); } }, { threshold: 0.5 }); if (ref.current) obs.observe(ref.current); return () => obs.disconnect(); }, [end]);
+  return <span ref={ref}>{prefix}{c}{suffix}</span>;
+}
+
+const Ic = {
+  wa: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>,
+  check: <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  arrow: <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><polyline points="12 5 19 12 12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  menu: <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>,
+  close: <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>,
+  star: <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+  clock: <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><polyline points="12 6 12 12 16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>,
+  shield: <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2"/></svg>,
+  pin: <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" strokeWidth="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2"/></svg>,
+  droplet: <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" stroke="currentColor" strokeWidth="2"/></svg>,
+  car: <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M14 16H9m10 0h3v-3.15a1 1 0 00-.84-.99L16 11l-2.7-3.6a1 1 0 00-.8-.4H5.24a1 1 0 00-.93.63L3 11H2v5h1m0 0a2 2 0 104 0m10 0a2 2 0 104 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>,
+  sparkle: <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/></svg>,
+  apple: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>,
+  gplay: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.003 1.003 0 01-.61-.92V2.734c0-.383.221-.72.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zM18.3 10.98l2.757 1.59a.998.998 0 010 1.74l-2.82 1.627-2.53-2.53 2.593-2.427zM5.864 2.658L16.8 8.991l-2.302 2.302L5.864 2.658z"/></svg>,
+};
+
+function AppPhone({ screen, active }) {
+  const bg = `linear-gradient(165deg, ${C.blue} 0%, ${C.greenDark} 100%)`;
+  const screens = {
+    home: <div style={{ padding: "14px 12px", display: "flex", flexDirection: "column", gap: 8, height: "100%", background: C.grayLight }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 6 }}><LogoIcon size={22}/><div><p style={{ fontFamily: "Poppins", fontSize: 11, fontWeight: 700, color: C.charcoal, margin: 0 }}>Good Morning!</p><p style={{ fontSize: 9, color: C.gray, margin: 0 }}>Koura, Lebanon</p></div></div>
+      <div style={{ background: bg, borderRadius: 12, padding: "10px 12px", color: "white" }}><p style={{ fontFamily: "Poppins", fontSize: 9, fontWeight: 600, margin: 0, opacity: .8 }}>Active Plan</p><p style={{ fontFamily: "Poppins", fontSize: 14, fontWeight: 800, margin: "2px 0 4px" }}>4 Washes/Month</p><div style={{ background: "rgba(255,255,255,.2)", borderRadius: 6, height: 5 }}><div style={{ width: "50%", height: "100%", background: "#5CEBA0", borderRadius: 6 }}/></div><p style={{ fontSize: 8, margin: "3px 0 0", opacity: .7 }}>2 of 4 remaining</p></div>
+      <p style={{ fontFamily: "Poppins", fontSize: 10, fontWeight: 700, color: C.charcoal, margin: "2px 0 0" }}>Quick Book</p>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>{[{n:"Inside",p:"$5"},{n:"Outside",p:"$5"},{n:"Simple",p:"$8"},{n:"CUV/Jeep",p:"$10"}].map(s=><div key={s.n} style={{ background: "white", borderRadius: 10, padding: "8px 10px", border: `1px solid ${C.blueLight}` }}><p style={{ fontSize: 9, fontWeight: 600, color: C.charcoal, margin: 0 }}>{s.n}</p><p style={{ fontFamily: "Poppins", fontSize: 14, fontWeight: 800, color: C.blue, margin: 0 }}>{s.p}</p></div>)}</div>
+      <div style={{ background: C.whatsapp, borderRadius: 10, padding: "8px", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, color: "white", marginTop: "auto" }}><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span style={{ fontFamily: "Poppins", fontSize: 10, fontWeight: 700 }}>Book via WhatsApp</span></div>
+    </div>,
+    booking: <div style={{ padding: "14px 12px", display: "flex", flexDirection: "column", gap: 10, height: "100%", background: C.grayLight }}>
+      <p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, color: C.charcoal, margin: 0 }}>Booking Confirmed!</p>
+      <div style={{ background: "white", borderRadius: 14, padding: 14, border: `1px solid ${C.blueLight}` }}>
+        <div style={{ textAlign: "center", marginBottom: 10 }}><div style={{ width: 40, height: 40, borderRadius: "50%", background: C.greenLight, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 6px", color: C.green }}>{Ic.check}</div><p style={{ fontFamily: "Poppins", fontSize: 12, fontWeight: 700, color: C.charcoal, margin: 0 }}>Your wash is booked!</p><p style={{ fontSize: 9, color: C.gray, margin: 0 }}>Ref #D12345</p></div>
+        {[["Car","Mazda 3"],["Service","Simple Wash"],["Date","Sat, Feb 20, 10 AM"],["Location","Amioun"],["Total","$8 (Cash)"]].map(([k,val])=><div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "5px 0", borderTop: `1px solid ${C.grayLight}` }}><span style={{ fontSize: 10, color: C.gray }}>{k}</span><span style={{ fontSize: 10, fontWeight: 600, color: C.charcoal }}>{val}</span></div>)}
+      </div>
+      <div style={{ background: C.whatsapp, borderRadius: 10, padding: 8, textAlign: "center", color: "white", fontFamily: "Poppins", fontSize: 10, fontWeight: 700 }}>Send to WhatsApp</div>
+      <div style={{ border: `1.5px solid ${C.blue}`, borderRadius: 10, padding: 8, textAlign: "center", color: C.blue, fontFamily: "Poppins", fontSize: 10, fontWeight: 700 }}>Add to Calendar</div>
+    </div>,
+    plans: <div style={{ padding: "14px 12px", display: "flex", flexDirection: "column", gap: 8, height: "100%", background: C.grayLight }}>
+      <p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, color: C.charcoal, margin: 0 }}>Subscription Plans</p>
+      {[{n:"2x/Month",p:"$15",pw:"$7.50/wash",c:false},{n:"3x/Month",p:"$20",pw:"$6.67/wash",c:false},{n:"4x/Month",p:"$25",pw:"$6.25/wash",c:true},{n:"Family",p:"$25",pw:"2 cars",c:false}].map(pl=><div key={pl.n} style={{ background: "white", borderRadius: 12, padding: "10px 12px", border: pl.c ? `2px solid ${C.blue}` : `1px solid ${C.blueLight}`, position: "relative" }}>{pl.c && <div style={{ position: "absolute", top: -7, right: 10, background: C.blue, color: "white", fontSize: 7, fontWeight: 700, padding: "2px 6px", borderRadius: 8, fontFamily: "Poppins" }}>POPULAR</div>}<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><div><p style={{ fontFamily: "Poppins", fontSize: 11, fontWeight: 700, color: C.charcoal, margin: 0 }}>{pl.n}</p><p style={{ fontSize: 9, color: C.green, fontWeight: 600, margin: 0 }}>{pl.pw}</p></div><p style={{ fontFamily: "Poppins", fontSize: 18, fontWeight: 800, color: C.blue, margin: 0 }}>{pl.p}<span style={{ fontSize: 9, color: C.gray }}>/mo</span></p></div></div>)}
+    </div>,
+  };
+  return (
+    <div style={{ width: 200, height: 400, borderRadius: 28, background: "#1a1a2e", border: "3px solid rgba(255,255,255,0.1)", boxShadow: active ? "0 30px 80px rgba(10,126,164,.25)" : "0 20px 60px rgba(0,0,0,.2)", overflow: "hidden", display: "flex", flexDirection: "column", transition: "all .4s", transform: active ? "scale(1.05)" : "scale(.95)", opacity: active ? 1 : .6, flexShrink: 0 }}>
+      <div style={{ height: 28, display: "flex", alignItems: "center", justifyContent: "center", background: "#1a1a2e" }}><div style={{ width: 50, height: 5, borderRadius: 3, background: "rgba(255,255,255,.15)" }}/></div>
+      <div style={{ flex: 1, overflow: "hidden" }}>{screens[screen]}</div>
+    </div>
+  );
+}
+
+function DoorstepWebsite() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mob, setMob] = useState(false);
+  const [appScreen, setAppScreen] = useState("home");
+
+  useEffect(() => { const h = () => setScrolled(window.scrollY > 50); window.addEventListener("scroll", h); return () => window.removeEventListener("scroll", h); }, []);
+  const go = useCallback((id) => { setMob(false); document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }); }, []);
+
+  const navs = [{id:"services",l:"Services"},{id:"pricing",l:"Pricing"},{id:"how",l:"How It Works"},{id:"app",l:"The App"},{id:"area",l:"Coverage"}];
+
+  return (
+    <div style={{ fontFamily: "'Open Sans',sans-serif", color: C.charcoal, background: C.white, overflowX: "hidden" }}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap');*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.3)}50%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:900px){.dsk{display:none!important}.mob{display:flex!important}}@media(max-width:768px){.g2{grid-template-columns:1fr!important}.g4{grid-template-columns:repeat(2,1fr)!important}.g5{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:500px){.g4{grid-template-columns:1fr!important}.g5{grid-template-columns:1fr!important}}`}</style>
+
+      {/* NAV */}
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: scrolled ? "8px 0" : "14px 0", background: scrolled ? "rgba(255,255,255,.95)" : "transparent", backdropFilter: scrolled ? "blur(20px)" : "none", boxShadow: scrolled ? "0 1px 20px rgba(10,126,164,.08)" : "none", transition: "all .35s" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div onClick={() => go("hero")} style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}><LogoIcon size={30}/><span style={{ fontFamily: "Poppins", fontWeight: 800, fontSize: 17, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Doorstep</span></div>
+          <div className="dsk" style={{ display: "flex", alignItems: "center", gap: 24 }}>
+            {navs.map(n => <span key={n.id} onClick={() => go(n.id)} style={{ fontWeight: 500, fontSize: 14, color: scrolled ? C.charcoal : "rgba(255,255,255,.85)", cursor: "pointer", transition: "color .2s" }} onMouseEnter={e => e.target.style.color = C.blue} onMouseLeave={e => e.target.style.color = scrolled ? C.charcoal : "rgba(255,255,255,.85)"}>{n.l}</span>)}
+            <a href="#" onClick={(e) => { e.preventDefault(); openWA(); }} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: C.whatsapp, color: "white", padding: "10px 22px", borderRadius: 50, fontFamily: "Poppins", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: "0 4px 16px rgba(37,211,102,.3)" }}>{Ic.wa} Book Now</a>
+          </div>
+          <button className="mob" onClick={() => setMob(true)} style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: scrolled ? C.charcoal : "white" }}>{Ic.menu}</button>
+        </div>
+      </nav>
+
+      {mob && <div style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,.5)" }} onClick={() => setMob(false)}><div style={{ width: 280, height: "100%", background: "white", marginLeft: "auto", padding: 24, display: "flex", flexDirection: "column", gap: 6 }} onClick={e => e.stopPropagation()}><button onClick={() => setMob(false)} style={{ alignSelf: "flex-end", background: "none", border: "none", cursor: "pointer", color: C.gray, marginBottom: 12 }}>{Ic.close}</button>{navs.map(n => <div key={n.id} onClick={() => go(n.id)} style={{ padding: "12px 14px", borderRadius: 10, fontFamily: "Poppins", fontWeight: 600, fontSize: 15, color: C.charcoal, cursor: "pointer" }}>{n.l}</div>)}<a href="#" onClick={(e) => { e.preventDefault(); openWA(); }} style={{ marginTop: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: C.whatsapp, color: "white", padding: 14, borderRadius: 14, fontFamily: "Poppins", fontWeight: 700, textDecoration: "none" }}>{Ic.wa} Book on WhatsApp</a></div></div>}
+
+      {/* HERO */}
+      <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", background: "linear-gradient(160deg,#0C1B2A 0%,#0a2942 40%,#082E3F 100%)", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 50% at 65% 35%,rgba(10,126,164,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 25% 80%,rgba(45,155,110,.12) 0%,transparent 60%)" }}/>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px)", backgroundSize: "50px 50px" }}/>
+        <div className="g2" style={{ maxWidth: 1200, margin: "0 auto", padding: "120px 24px 80px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 50, alignItems: "center", position: "relative", zIndex: 2 }}>
+          <div style={{ animation: "fadeIn .8s ease" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(45,155,110,.12)", border: "1px solid rgba(45,155,110,.25)", padding: "8px 18px", borderRadius: 50, fontSize: 13, fontWeight: 600, color: "#5CEBA0", marginBottom: 24 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: C.whatsapp, animation: "pulse 2s infinite" }}/> Serving Koura District</div>
+            <h1 style={{ fontFamily: "Poppins", fontSize: "clamp(32px,5vw,56px)", fontWeight: 900, lineHeight: 1.08, color: "white", marginBottom: 18, letterSpacing: -1 }}>Professional Car Wash<br/>at Your <span style={{ background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Doorstep</span></h1>
+            <p style={{ fontSize: 16, color: "#B8C5D3", lineHeight: 1.75, marginBottom: 12, maxWidth: 480 }}>We bring the car wash to your driveway in Koura. Book in under 60 seconds via WhatsApp. Our uniformed team arrives with water, equipment, and leaves your car sparkling clean in 30 minutes.</p>
+            <p style={{ fontSize: 13, color: "#6B7F95", marginBottom: 28 }}>Tue–Sat: 8:30 AM – 6:00 PM &nbsp;|&nbsp; Sun: 8:00 AM – 12:00 PM</p>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <a href="#" onClick={(e) => { e.preventDefault(); openWA(); }} style={{ display: "inline-flex", alignItems: "center", gap: 10, background: C.whatsapp, color: "white", padding: "16px 30px", borderRadius: 60, fontFamily: "Poppins", fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 8px 30px rgba(37,211,102,.35)" }}>{Ic.wa} Book via WhatsApp</a>
+              <span onClick={() => go("services")} style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "white", padding: "16px 30px", borderRadius: 60, fontFamily: "Poppins", fontWeight: 600, fontSize: 15, border: "2px solid rgba(255,255,255,.15)", cursor: "pointer" }}>Our Services {Ic.arrow}</span>
+            </div>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
+            <div style={{ position: "absolute", left: -10, top: "20%", background: "white", borderRadius: 14, padding: "12px 16px", boxShadow: "0 12px 40px rgba(0,0,0,.15)", animation: "float 5s ease-in-out infinite", zIndex: 3 }}><div style={{ fontSize: 10, color: C.gray, fontWeight: 600 }}>Starting from</div><div style={{ fontFamily: "Poppins", fontSize: 26, fontWeight: 900, color: C.blue }}>$5</div></div>
+            <AppPhone screen="home" active={true}/>
+            <div style={{ position: "absolute", right: 0, bottom: "18%", background: "white", borderRadius: 14, padding: "10px 14px", boxShadow: "0 12px 40px rgba(0,0,0,.15)", animation: "float 6s ease-in-out infinite", animationDelay: "-3s", zIndex: 3 }}><div style={{ fontSize: 10, color: C.gray, fontWeight: 600 }}>Rating</div><div style={{ display: "flex", gap: 1, marginTop: 2 }}>{[...Array(5)].map((_,i) => <span key={i}>{Ic.star}</span>)}</div><div style={{ fontFamily: "Poppins", fontWeight: 700, fontSize: 12, color: C.charcoal, marginTop: 1 }}>4.9 / 5.0</div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <div style={{ background: "white", borderBottom: `1px solid ${C.grayLight}`, padding: "36px 24px" }}>
+        <div className="g4" style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 20, textAlign: "center" }}>
+          {[{v:30,s:" min",l:"Service Time"},{v:5,s:"",p:"$",l:"Starting Price"},{v:52,s:"",l:"Villages"},{v:60,s:"s",l:"WhatsApp Booking"}].map((s,i) => <div key={i}><div style={{ fontFamily: "Poppins", fontSize: 32, fontWeight: 900, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}><Counter end={s.v} suffix={s.s} prefix={s.p||""}/></div><div style={{ fontSize: 12, color: C.gray, fontWeight: 500, marginTop: 2 }}>{s.l}</div></div>)}
+        </div>
+      </div>
+
+      {/* HOW IT WORKS */}
+      <section id="how" style={{ padding: "90px 24px", background: `linear-gradient(180deg,${C.blueLight} 0%,${C.greenLight} 100%)` }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10 }}>How It Works</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: C.charcoal, marginBottom: 10 }}>Clean Car in 3 Simple Steps</h2><p style={{ fontSize: 15, color: C.gray, lineHeight: 1.7, maxWidth: 500 }}>No apps required. Just message us on WhatsApp and we handle everything.</p></Reveal>
+          <div className="g2" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, marginTop: 44 }}>
+            {[{n:"01",ic:Ic.wa,t:"Message on WhatsApp",d:"Send your location pin, car type, service, and time. We confirm within 15 minutes.",c:C.whatsapp},{n:"02",ic:Ic.car,t:"We Come to You",d:"Our uniformed team arrives with water tank, pressure washer, vacuum, and professional supplies.",c:C.blue},{n:"03",ic:Ic.sparkle,t:"Sparkling Results",d:"Your car is cleaned in 30 minutes. Pay after — cash, card, or mobile wallet. Rate us and rebook!",c:C.green}].map((s,i) => <Reveal key={s.n} delay={i*.1}><div style={{ background: "white", borderRadius: 22, padding: "32px 24px", position: "relative", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,.04)", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-5px)";e.currentTarget.style.boxShadow="0 12px 36px rgba(10,126,164,.1)"}} onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 4px 20px rgba(0,0,0,.04)"}}><span style={{ position: "absolute", top: -10, right: -5, fontFamily: "Poppins", fontSize: 100, fontWeight: 900, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", opacity: .04, lineHeight: 1 }}>{s.n}</span><div style={{ width: 48, height: 48, borderRadius: 12, background: s.c, display: "flex", alignItems: "center", justifyContent: "center", color: "white", marginBottom: 14 }}>{s.ic}</div><h3 style={{ fontFamily: "Poppins", fontSize: 17, fontWeight: 700, color: C.charcoal, marginBottom: 8 }}>{s.t}</h3><p style={{ fontSize: 13, color: C.gray, lineHeight: 1.7 }}>{s.d}</p></div></Reveal>)}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" style={{ padding: "90px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10 }}>Our Services</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: C.charcoal, marginBottom: 10 }}>A La Carte Car Washes</h2><p style={{ fontSize: 15, color: C.gray, lineHeight: 1.7, maxWidth: 500 }}>Professional results at gas-station prices — completed in 30 minutes at your driveway.</p></Reveal>
+          <div className="g2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16, marginTop: 40 }}>
+            {[{n:"Inside Only",d:"Interior vacuum, surface wipe, basic tidying",p:"$5",e:"🧹",bg:C.blueLight},{n:"Outside Only",d:"Exterior wash, wheel cleaning, glass cleaning",p:"$5",e:"💧",bg:C.greenLight},{n:"Simple Wash (Cars)",d:"Complete interior + exterior service",p:"$8",e:"🚗",bg:C.blueLight},{n:"Simple Wash (CUV/Jeep)",d:"Full service for larger vehicles",p:"$10",e:"🚙",bg:C.greenLight},{n:"Headlights Restoration",d:"Professional headlight cleaning & polish",p:"+$10",e:"💡",bg:C.blueLight},{n:"Fleet Packages",d:"Custom pricing for businesses with 2–20 vehicles",p:"Custom",e:"🏢",bg:C.greenLight}].map((s,i) => <Reveal key={s.n} delay={i*.05}><div style={{ display: "flex", alignItems: "center", gap: 14, background: "white", border: `1px solid ${C.grayLight}`, borderRadius: 16, padding: "18px 20px", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.borderColor=C.blue;e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 6px 24px rgba(10,126,164,.07)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor=C.grayLight;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}><div style={{ width: 44, height: 44, borderRadius: 12, background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, flexShrink: 0 }}>{s.e}</div><div style={{ flex: 1 }}><h4 style={{ fontFamily: "Poppins", fontSize: 15, fontWeight: 700, color: C.charcoal, margin: 0 }}>{s.n}</h4><p style={{ fontSize: 12, color: C.gray, margin: "2px 0 0" }}>{s.d}</p></div><div style={{ fontFamily: "Poppins", fontSize: 22, fontWeight: 800, color: C.blue, whiteSpace: "nowrap" }}>{s.p}</div></div></Reveal>)}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" style={{ padding: "90px 24px", background: "linear-gradient(160deg,#0C1B2A 0%,#0a2942 100%)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: "#5CEBA0", marginBottom: 10 }}>Subscription Plans</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: "white", marginBottom: 10 }}>Save More, Wash Regularly</h2><p style={{ fontSize: 15, color: "#7F9BB3", lineHeight: 1.7, maxWidth: 500 }}>Monthly plans with no commitment. Cancel anytime.</p></Reveal>
+          <div className="g4" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 48 }}>
+            {[{n:"2 Washes/Month",p:"15",pw:"$7.50/wash",di:"6% off",f:["2 scheduled washes","Interior + exterior","WhatsApp booking","Priority scheduling"],po:false},{n:"3 Washes/Month",p:"20",pw:"$6.67/wash",di:"17% off",f:["3 scheduled washes","Interior + exterior","WhatsApp booking","Priority scheduling","Free headlight check"],po:false},{n:"4 Washes/Month",p:"25",pw:"$6.25/wash",di:"22% off",f:["Weekly washes","Interior + exterior","WhatsApp booking","Top priority","Free headlight check","Loyalty rewards"],po:true},{n:"Family Plan",p:"25",pw:"2 cars, 4 washes",di:"Best value",f:["2 cars included","2 washes/car/month","Interior + exterior","WhatsApp booking","Family priority"],po:false}].map((p,i) => <Reveal key={p.n} delay={i*.08}><div style={{ background: p.po ? "rgba(10,126,164,.12)" : "rgba(255,255,255,.03)", border: `1px solid ${p.po ? C.blue : "rgba(255,255,255,.07)"}`, borderRadius: 20, padding: "28px 20px", position: "relative", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.borderColor=C.blue}} onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.borderColor=p.po?C.blue:"rgba(255,255,255,.07)"}}>{p.po && <div style={{ position: "absolute", top: -11, left: "50%", transform: "translateX(-50%)", background: `linear-gradient(135deg,${C.blue},${C.green})`, color: "white", padding: "3px 14px", borderRadius: 50, fontFamily: "Poppins", fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>Most Popular</div>}<div style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 600, color: "#7F9BB3", marginBottom: 6 }}>{p.n}</div><div style={{ fontFamily: "Poppins", fontSize: 38, fontWeight: 900, color: "white", lineHeight: 1 }}>${p.p}<span style={{ fontSize: 13, fontWeight: 500, color: "#7F9BB3" }}>/mo</span></div><div style={{ fontSize: 12, color: C.green, fontWeight: 600, margin: "4px 0 16px" }}>{p.pw} — {p.di}</div><div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>{p.f.map(f => <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#B8C5D3" }}><span style={{ color: C.green, flexShrink: 0 }}>{Ic.check}</span>{f}</div>)}</div><a href="#" onClick={(e) => { e.preventDefault(); openWA(`Hi! I'd like to subscribe to the ${p.n} plan ($${p.p}/month).`); }} style={{ display: "block", textAlign: "center", padding: 12, borderRadius: 12, fontFamily: "Poppins", fontWeight: 700, fontSize: 12, textDecoration: "none", marginBottom: 8, cursor: "pointer", ...(p.po ? { background: `linear-gradient(135deg,${C.blue},${C.green})`, color: "white" } : { background: "transparent", color: "white", border: "1.5px solid rgba(255,255,255,.12)" }) }}>{Ic.wa} Subscribe via WhatsApp</a><a href="#" onClick={(e) => { e.preventDefault(); openWA(`Hi! I'd like to subscribe to the ${p.n} plan ($${p.p}/month). I'll pay via Wish Money to ${WISH_NUM}.`); }} style={{ display: "block", textAlign: "center", padding: 12, borderRadius: 12, fontFamily: "Poppins", fontWeight: 700, fontSize: 12, textDecoration: "none", cursor: "pointer", background: "#8B5CF6", color: "white" }}>💜 Pay via Wish Money</a><div style={{ textAlign: "center", marginTop: 8, fontSize: 10, color: "rgba(255,255,255,.4)" }}>Wish Money: {WISH_NUM}</div></div></Reveal>)}
+          </div>
+        </div>
+      </section>
+
+      {/* PAYMENT */}
+      <section id="payment" style={{ padding: "80px 24px", background: C.grayLight, textAlign: "center" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10 }}>Payment Methods</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(24px,3.5vw,34px)", fontWeight: 800, color: C.charcoal, marginBottom: 10 }}>Pay Your Way</h2><p style={{ fontSize: 14, color: C.gray, lineHeight: 1.7, maxWidth: 480, margin: "0 auto 36px" }}>We accept multiple payment options. Pay after your service is complete.</p></Reveal>
+          <div className="g5" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 14 }}>
+            {[{ic:"💵",n:"Cash",d:"Pay in cash after service. Most popular in Koura.",t:"Most Popular",tc:C.green},{ic:"💳",n:"Credit/Debit Card",d:"Visa, Mastercard via Tap Payments. Apple Pay & Google Pay.",t:null},{ic:"💜",n:"Wish Money",d:`Transfer to ${WISH_NUM}. Send screenshot via WhatsApp to confirm. Fast & easy!`,t:"Subscriptions",tc:"#8B5CF6"},{ic:"📱",n:"OMT & Wallets",d:"OMT, and other popular Lebanese mobile wallets accepted.",t:null},{ic:"⭐",n:"Subscription Balance",d:"Use your pre-paid subscription washes at discounted rates.",t:"Save 22%",tc:C.blue}].map((p,i) => <Reveal key={p.n} delay={i*.06}><div style={{ background: "white", borderRadius: 18, padding: "24px 18px", textAlign: "center", border: `1px solid ${C.grayLight}`, transition: "all .3s", position: "relative" }} onMouseEnter={e=>{e.currentTarget.style.borderColor=C.blue;e.currentTarget.style.transform="translateY(-3px)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor=C.grayLight;e.currentTarget.style.transform="translateY(0)"}}>{p.t && <div style={{ position: "absolute", top: -9, left: "50%", transform: "translateX(-50%)", background: p.tc, color: "white", fontSize: 9, fontWeight: 700, padding: "3px 10px", borderRadius: 16, fontFamily: "Poppins" }}>{p.t}</div>}<div style={{ fontSize: 28, marginBottom: 10 }}>{p.ic}</div><h4 style={{ fontFamily: "Poppins", fontSize: 15, fontWeight: 700, color: C.charcoal, marginBottom: 6 }}>{p.n}</h4><p style={{ fontSize: 12, color: C.gray, lineHeight: 1.6 }}>{p.d}</p></div></Reveal>)}
+          </div>
+        </div>
+      </section>
+
+      {/* APP PREVIEW */}
+      <section id="app" style={{ padding: "90px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10, textAlign: "center" }}>The App</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: C.charcoal, marginBottom: 10, textAlign: "center" }}>Your Car Care, In Your Pocket</h2><p style={{ fontSize: 15, color: C.gray, lineHeight: 1.7, maxWidth: 550, margin: "0 auto 16px", textAlign: "center" }}>Start with WhatsApp, then upgrade to our app for subscriptions, instant rebooking, and full control.</p></Reveal>
+          <div style={{ display: "flex", justifyContent: "center", gap: 10, marginBottom: 40 }}>
+            {[{id:"home",l:"Dashboard"},{id:"booking",l:"Booking"},{id:"plans",l:"Subscriptions"}].map(t => <button key={t.id} onClick={() => setAppScreen(t.id)} style={{ fontFamily: "Poppins", fontWeight: 600, fontSize: 13, padding: "9px 22px", borderRadius: 50, border: "none", cursor: "pointer", transition: "all .2s", background: appScreen===t.id ? `linear-gradient(135deg,${C.blue},${C.green})` : C.grayLight, color: appScreen===t.id ? "white" : C.gray }}>{t.l}</button>)}
+          </div>
+          <div className="g2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 50, alignItems: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}><AppPhone screen={appScreen} active={true}/></div>
+            <div>
+              <h3 style={{ fontFamily: "Poppins", fontSize: 24, fontWeight: 800, color: C.charcoal, marginBottom: 18 }}>{appScreen==="home" ? "Everything at a Glance" : appScreen==="booking" ? "Book & Confirm Instantly" : "Manage Your Plan"}</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 28 }}>
+                {(appScreen==="home" ? ["Active subscription & remaining washes","Quick-book any service with one tap","Saved cars, addresses & payment methods","Direct WhatsApp support integration","Weather-aware scheduling (coming soon)"] : appScreen==="booking" ? ["Choose car, service, date and time","Real-time availability & time slots","Confirm and send details via WhatsApp","Add booking to your phone calendar","Reminders 2 hours before appointment"] : ["Compare all plans side by side","Track remaining washes with progress bar","Upgrade or downgrade anytime","Family plan: 2 cars for $25/month","Auto-renewal with full cancellation control"]).map((f,i) => <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}><div style={{ width: 24, height: 24, borderRadius: 7, background: C.greenLight, display: "flex", alignItems: "center", justifyContent: "center", color: C.green, flexShrink: 0 }}>{Ic.check}</div><span style={{ fontSize: 14, color: C.charcoal }}>{f}</span></div>)}
+              </div>
+              <p style={{ fontFamily: "Poppins", fontSize: 12, fontWeight: 700, color: C.gray, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>Download the App</p>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: C.charcoal, color: "white", padding: "10px 20px", borderRadius: 10, textDecoration: "none", fontSize: 13 }}>{Ic.apple}<div><div style={{ fontSize: 8, opacity: .7 }}>Download on the</div><div style={{ fontFamily: "Poppins", fontWeight: 700, fontSize: 14, marginTop: -1 }}>App Store</div></div></a>
+                <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: C.charcoal, color: "white", padding: "10px 20px", borderRadius: 10, textDecoration: "none", fontSize: 13 }}>{Ic.gplay}<div><div style={{ fontSize: 8, opacity: .7 }}>Get it on</div><div style={{ fontFamily: "Poppins", fontWeight: 700, fontSize: 14, marginTop: -1 }}>Google Play</div></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY US */}
+      <section style={{ padding: "90px 24px", background: C.grayLight }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10 }}>Why Doorstep</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: C.charcoal, marginBottom: 10 }}>Built for Koura, by Koura</h2><p style={{ fontSize: 15, color: C.gray, lineHeight: 1.7, maxWidth: 500 }}>Purpose-built for how Koura residents live, communicate, and care for their cars.</p></Reveal>
+          <div className="g2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 18, marginTop: 40 }}>
+            {[{ic:Ic.clock,t:"30-Minute Guarantee",d:"Every core wash completed in maximum 30 minutes. We respect your time.",c:C.blue,bg:C.blueLight},{ic:Ic.droplet,t:"We Bring Everything",d:"Our own water tank, pressure washer, vacuum, generator, and professional supplies.",c:C.green,bg:C.greenLight},{ic:Ic.shield,t:"Insured & Verified Staff",d:"Uniformed, background-checked team with commercial liability insurance.",c:C.blue,bg:C.blueLight},{ic:Ic.pin,t:"Hyper-Local Coverage",d:"Amioun to Kousba, Beshmizzine, Chekka, and all 52 Koura villages.",c:C.green,bg:C.greenLight}].map((w,i) => <Reveal key={w.t} delay={i*.06}><div style={{ background: "white", border: `1px solid ${C.grayLight}`, borderRadius: 18, padding: 24, transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.borderColor=C.blue}} onMouseLeave={e=>{e.currentTarget.style.borderColor=C.grayLight}}><div style={{ width: 44, height: 44, borderRadius: 12, background: w.bg, display: "flex", alignItems: "center", justifyContent: "center", color: w.c, marginBottom: 12 }}>{w.ic}</div><h4 style={{ fontFamily: "Poppins", fontSize: 16, fontWeight: 700, color: C.charcoal, marginBottom: 6 }}>{w.t}</h4><p style={{ fontSize: 13, color: C.gray, lineHeight: 1.7 }}>{w.d}</p></div></Reveal>)}
+          </div>
+        </div>
+      </section>
+
+      {/* COVERAGE */}
+      <section id="area" style={{ padding: "90px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10 }}>Service Area</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: C.charcoal, marginBottom: 10 }}>Covering All of Koura District</h2></Reveal>
+          
+          {/* Google Maps - works on real hosted sites */}
+          <Reveal>
+            <div style={{ borderRadius: 22, overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,.08)", border: `1px solid ${C.grayLight}`, marginTop: 32, marginBottom: 8 }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106000!2d35.78!3d34.31!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1521f7c1b24e7c09%3A0x3b5ef7c21e7c3b0!2sKoura%20District!5e0!3m2!1sen!2slb"
+                width="100%" height="400" style={{ border: 0, display: "block" }} allowFullScreen="" loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade" title="Doorstep Car Wash - Koura District"/>
+            </div>
+          </Reveal>
+          {/* Interactive SVG Map */}
+          <Reveal>
+            <div style={{ borderRadius: 22, overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,.08)", border: `1px solid ${C.grayLight}`, marginTop: 32, marginBottom: 40, background: `linear-gradient(135deg, #E8F4F8 0%, #dbeef5 40%, #E6F5F0 100%)`, position: "relative", padding: "40px 20px" }}>
+              {/* Map background texture */}
+              <div style={{ position: "absolute", inset: 0, opacity: .06, backgroundImage: "radial-gradient(circle, #0A7EA4 1px, transparent 1px)", backgroundSize: "20px 20px" }}/>
+              
+              <svg viewBox="0 0 800 420" width="100%" height="auto" style={{ display: "block", position: "relative", zIndex: 1 }}>
+                {/* Mediterranean Sea */}
+                <defs>
+                  <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#0A7EA4" stopOpacity=".12"/><stop offset="100%" stopColor="#0A7EA4" stopOpacity=".04"/></linearGradient>
+                  <linearGradient id="roadGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#B8C5D3"/><stop offset="100%" stopColor="#9BB0C4"/></linearGradient>
+                  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                  <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity=".15"/></filter>
+                </defs>
+
+                {/* Sea area (top) */}
+                <path d="M0 0 H800 V100 Q650 130 500 110 Q350 90 200 120 Q100 140 0 115 Z" fill="url(#seaGrad)"/>
+                <text x="400" y="55" textAnchor="middle" fontFamily="Poppins" fontSize="13" fontWeight="600" fill="#0A7EA4" opacity=".35">Mediterranean Sea</text>
+
+                {/* Coastal road */}
+                <path d="M0 125 Q100 140 200 125 Q350 105 500 115 Q650 128 800 110" stroke="url(#roadGrad)" strokeWidth="3" fill="none" strokeDasharray="8 4" opacity=".5"/>
+
+                {/* District boundary (approximate Koura shape) */}
+                <path d="M120 130 Q200 100 350 110 Q500 120 600 115 Q650 130 660 180 Q670 250 620 310 Q550 360 450 370 Q350 375 250 350 Q180 320 150 260 Q120 200 120 130 Z" fill="#fff" fillOpacity=".5" stroke={C.blue} strokeWidth="2" strokeDasharray="6 3" opacity=".6"/>
+                <text x="390" y="390" textAnchor="middle" fontFamily="Poppins" fontSize="11" fontWeight="600" fill={C.blue} opacity=".4">KOURA DISTRICT</text>
+
+                {/* Main roads */}
+                <path d="M80 160 Q200 170 320 175 Q450 180 580 170 Q700 160 790 155" stroke="#B8C5D3" strokeWidth="2.5" fill="none" opacity=".4"/>
+                <path d="M320 175 Q340 230 360 280 Q380 330 400 370" stroke="#B8C5D3" strokeWidth="2" fill="none" opacity=".3"/>
+                <path d="M450 180 Q470 220 490 260 Q520 310 560 340" stroke="#B8C5D3" strokeWidth="2" fill="none" opacity=".3"/>
+
+                {/* Service coverage zones */}
+                {/* Amioun zone */}
+                <circle cx="350" cy="190" r="55" fill={C.blue} fillOpacity=".08" stroke={C.blue} strokeWidth="1.5" strokeDasharray="4 2" opacity=".6"/>
+                {/* Beshmizzine zone */}
+                <circle cx="430" cy="210" r="45" fill={C.blue} fillOpacity=".06" stroke={C.blue} strokeWidth="1" strokeDasharray="4 2" opacity=".5"/>
+                {/* Kousba zone */}
+                <circle cx="510" cy="240" r="45" fill={C.blue} fillOpacity=".06" stroke={C.blue} strokeWidth="1" strokeDasharray="4 2" opacity=".5"/>
+                {/* Chekka extended zone */}
+                <circle cx="220" cy="165" r="50" fill={C.green} fillOpacity=".05" stroke={C.green} strokeWidth="1" strokeDasharray="4 2" opacity=".4"/>
+
+                {/* Village markers - Core zones */}
+                {/* Amioun - Main hub */}
+                <g filter="url(#shadow)" style={{ cursor: "pointer" }}>
+                  <circle cx="350" cy="190" r="14" fill={C.blue}/>
+                  <circle cx="350" cy="190" r="18" fill="none" stroke={C.blue} strokeWidth="2" opacity=".3">
+                    <animate attributeName="r" values="18;24;18" dur="3s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values=".3;0;.3" dur="3s" repeatCount="indefinite"/>
+                  </circle>
+                  <text x="350" y="195" textAnchor="middle" fontFamily="Poppins" fontSize="10" fontWeight="700" fill="white">A</text>
+                </g>
+                <text x="350" y="222" textAnchor="middle" fontFamily="Poppins" fontSize="12" fontWeight="700" fill={C.charcoal}>Amioun</text>
+                <text x="350" y="236" textAnchor="middle" fontFamily="Open Sans" fontSize="9" fill={C.gray}>District Center</text>
+
+                {/* Beshmizzine */}
+                <g filter="url(#shadow)">
+                  <circle cx="430" cy="210" r="11" fill={C.blue}/>
+                  <text x="430" y="214" textAnchor="middle" fontFamily="Poppins" fontSize="9" fontWeight="700" fill="white">B</text>
+                </g>
+                <text x="430" y="237" textAnchor="middle" fontFamily="Poppins" fontSize="11" fontWeight="600" fill={C.charcoal}>Beshmizzine</text>
+
+                {/* Kousba */}
+                <g filter="url(#shadow)">
+                  <circle cx="510" cy="240" r="11" fill={C.blue}/>
+                  <text x="510" y="244" textAnchor="middle" fontFamily="Poppins" fontSize="9" fontWeight="700" fill="white">K</text>
+                </g>
+                <text x="510" y="267" textAnchor="middle" fontFamily="Poppins" fontSize="11" fontWeight="600" fill={C.charcoal}>Kousba</text>
+
+                {/* Extended zones */}
+                {/* Chekka */}
+                <g filter="url(#shadow)">
+                  <circle cx="220" cy="155" r="9" fill={C.green}/>
+                  <text x="220" y="159" textAnchor="middle" fontFamily="Poppins" fontSize="8" fontWeight="700" fill="white">C</text>
+                </g>
+                <text x="220" y="178" textAnchor="middle" fontFamily="Poppins" fontSize="10" fontWeight="600" fill={C.charcoal}>Chekka</text>
+
+                {/* Enfeh */}
+                <g filter="url(#shadow)">
+                  <circle cx="280" cy="135" r="7" fill={C.green} opacity=".7"/>
+                </g>
+                <text x="280" y="155" textAnchor="middle" fontFamily="Open Sans" fontSize="9" fill={C.gray}>Enfeh</text>
+
+                {/* Amioun surrounding villages */}
+                {[{x:310,y:260,n:"Btourram"},{x:400,y:290,n:"Kfar Hazir"},{x:470,y:300,n:"Bkeftine"},{x:570,y:270,n:"Kfar Saroun"},{x:600,y:200,n:"Dar Baachtar"},{x:290,y:310,n:"Bdebba"},{x:380,y:340,n:"Kfar Aaqqa"},{x:540,y:180,n:"Btaaboura"}].map((v,i) => 
+                  <g key={i}><circle cx={v.x} cy={v.y} r="4" fill={C.green} opacity=".5"/><text x={v.x} y={v.y+14} textAnchor="middle" fontFamily="Open Sans" fontSize="8" fill={C.gray} opacity=".7">{v.n}</text></g>
+                )}
+
+                {/* Legend */}
+                <g transform="translate(620, 300)">
+                  <rect x="0" y="0" width="155" height="95" rx="10" fill="white" fillOpacity=".9" filter="url(#shadow)"/>
+                  <text x="12" y="20" fontFamily="Poppins" fontSize="10" fontWeight="700" fill={C.charcoal}>Legend</text>
+                  <circle cx="20" cy="38" r="5" fill={C.blue}/><text x="32" y="42" fontFamily="Open Sans" fontSize="9" fill={C.charcoal}>Core Zone (daily)</text>
+                  <circle cx="20" cy="58" r="5" fill={C.green}/><text x="32" y="62" fontFamily="Open Sans" fontSize="9" fill={C.charcoal}>Extended Zone</text>
+                  <circle cx="20" cy="78" r="3" fill={C.green} opacity=".5"/><text x="32" y="82" fontFamily="Open Sans" fontSize="9" fill={C.gray}>Villages (52 total)</text>
+                </g>
+
+                {/* Compass */}
+                <g transform="translate(50, 320)">
+                  <circle cx="0" cy="0" r="18" fill="white" fillOpacity=".8" stroke={C.blue} strokeWidth="1" opacity=".5"/>
+                  <text x="0" y="-5" textAnchor="middle" fontFamily="Poppins" fontSize="10" fontWeight="700" fill={C.blue}>N</text>
+                  <path d="M0 -12 L3 -2 L0 -5 L-3 -2 Z" fill={C.blue} opacity=".6"/>
+                </g>
+              </svg>
+
+              {/* Open in Google Maps overlay button */}
+              <div style={{ position: "absolute", bottom: 16, left: "50%", transform: "translateX(-50%)", zIndex: 2 }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); window.open("https://www.google.com/maps/place/Koura+District,+Lebanon", "_blank"); }} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "white", color: C.blue, padding: "10px 22px", borderRadius: 50, fontFamily: "Poppins", fontWeight: 700, fontSize: 13, textDecoration: "none", boxShadow: "0 4px 20px rgba(0,0,0,.12)", cursor: "pointer", border: `2px solid ${C.blue}` }}>
+                  {Ic.pin} View Full Map on Google Maps
+                </a>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="g2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "start" }}>
+            <Reveal><div style={{ background: "white", borderRadius: 22, padding: 28, boxShadow: "0 6px 32px rgba(0,0,0,.04)", border: `1px solid ${C.grayLight}` }}>
+              <h3 style={{ fontFamily: "Poppins", fontSize: 16, fontWeight: 700, color: C.charcoal, marginBottom: 16, display: "flex", alignItems: "center", gap: 8 }}><span style={{ color: C.blue }}>{Ic.pin}</span> Active Zones</h3>
+              {[{n:"Amioun",d:"District center — full daily coverage",t:"core"},{n:"Beshmizzine",d:"Core zone — morning & afternoon",t:"core"},{n:"Kousba",d:"Core zone — afternoon slots",t:"core"},{n:"Chekka Corridor",d:"Extended zone — by appointment",t:"ext"},{n:"All 52 Villages",d:"District-wide Koura coverage",t:"ext"}].map(v => <div key={v.n} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 0", borderBottom: `1px solid ${C.grayLight}` }}><div style={{ width: 9, height: 9, borderRadius: "50%", background: v.t==="core"?C.blue:C.green, flexShrink: 0 }}/><div><div style={{ fontWeight: 600, fontSize: 14, color: C.charcoal }}>{v.n}</div><div style={{ fontSize: 11, color: C.gray }}>{v.d}</div></div></div>)}
+              <div style={{ display: "flex", gap: 12, marginTop: 14, flexWrap: "wrap" }}>
+                <span style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: C.blue }}/> Core Zone</span>
+                <span style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11 }}><span style={{ width: 8, height: 8, borderRadius: "50%", background: C.green }}/> Extended Zone</span>
+              </div>
+            </div></Reveal>
+            <Reveal delay={.1}><div>
+              <h3 style={{ fontFamily: "Poppins", fontSize: 24, fontWeight: 800, color: C.charcoal, marginBottom: 14 }}>Your Driveway is Our Workspace</h3>
+              <p style={{ fontSize: 14, color: C.gray, lineHeight: 1.75, marginBottom: 16 }}>We serve approximately 32,000 reachable vehicles across the entire Koura district. Our mobile team travels to homes, offices, compounds, and parking lots.</p>
+              <p style={{ fontSize: 14, color: C.gray, lineHeight: 1.75, marginBottom: 20 }}>Not sure if we cover your area? Send a location pin on WhatsApp and we'll confirm instantly. Special "Compound Day" pricing for 5+ cars at the same location.</p>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>{["Tue–Sat: 8:30–6:00 PM","Sun: 8:00–12:00 PM","Mon: Closed"].map(h => <span key={h} style={{ display: "inline-flex", alignItems: "center", gap: 4, background: C.grayLight, padding: "6px 12px", borderRadius: 50, fontSize: 12, fontWeight: 500, color: C.charcoal }}>{h}</span>)}</div>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); openWA("Hi! Does your service cover my area? Here's my location:"); }} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: C.whatsapp, color: "white", padding: "12px 24px", borderRadius: 50, fontFamily: "Poppins", fontWeight: 700, fontSize: 13, textDecoration: "none", cursor: "pointer" }}>{Ic.wa} Check My Coverage</a>
+                <a href="https://maps.google.com/?q=Koura+District+Lebanon" target="_blank" rel="noopener noreferrer" onClick={(e) => { e.preventDefault(); window.open("https://maps.google.com/?q=Koura+District+Lebanon", "_blank"); }} style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "white", color: C.blue, padding: "12px 24px", borderRadius: 50, fontFamily: "Poppins", fontWeight: 700, fontSize: 13, textDecoration: "none", border: `2px solid ${C.blue}`, cursor: "pointer" }}>{Ic.pin} Open in Google Maps</a>
+              </div>
+            </div></Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ background: `linear-gradient(135deg,${C.blue},${C.green})`, padding: "90px 24px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 30% 50%,rgba(255,255,255,.1) 0%,transparent 50%)" }}/>
+        <div style={{ maxWidth: 650, margin: "0 auto", position: "relative", zIndex: 2 }}>
+          <Reveal>
+            <Logo1 size={60} showText={false} white/>
+            <h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,42px)", fontWeight: 900, color: "white", margin: "20px 0 14px" }}>Ready for a Sparkling Clean Car?</h2>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,.85)", marginBottom: 32, lineHeight: 1.75 }}>No app needed to get started. Just WhatsApp us your location, car type, and preferred time. We'll be at your doorstep within your chosen slot.</p>
+            <a href="#" onClick={(e) => { e.preventDefault(); openWA(); }} style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "white", color: C.charcoal, padding: "16px 36px", borderRadius: 60, fontFamily: "Poppins", fontWeight: 800, fontSize: 16, textDecoration: "none", boxShadow: "0 12px 40px rgba(0,0,0,.15)" }}><span style={{ color: C.whatsapp }}>{Ic.wa}</span> Book on WhatsApp Now</a>
+            <p style={{ fontSize: 12, color: "rgba(255,255,255,.6)", marginTop: 14 }}>Or call us: {PHONE_DISPLAY}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{ background: "#0C1B2A", padding: "50px 24px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="g4" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 36, marginBottom: 36 }}>
+            <div><div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}><LogoIcon size={26}/><span style={{ fontFamily: "Poppins", fontWeight: 800, fontSize: 15, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Doorstep Car Wash</span></div><p style={{ fontSize: 12, color: "#6B7F95", lineHeight: 1.7, maxWidth: 260 }}>Professional mobile car wash covering all of Koura district, North Lebanon.</p><div style={{ display: "flex", gap: 8, marginTop: 12 }}><a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: C.charcoal, color: "white", padding: "6px 12px", borderRadius: 8, textDecoration: "none", fontSize: 10 }}>{Ic.apple}<span style={{ fontFamily: "Poppins", fontWeight: 600 }}>App Store</span></a><a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: C.charcoal, color: "white", padding: "6px 12px", borderRadius: 8, textDecoration: "none", fontSize: 10 }}>{Ic.gplay}<span style={{ fontFamily: "Poppins", fontWeight: 600 }}>Google Play</span></a></div></div>
+            {[{t:"Services",l:["Inside Wash","Outside Wash","Simple Wash","Headlights","Fleet Plans"]},{t:"Plans",l:["2 Washes/Month","3 Washes/Month","4 Washes/Month","Family Plan"]},{t:"Contact",l:["WhatsApp","Instagram","TikTok","Facebook","Google Maps"]}].map(col => <div key={col.t}><h4 style={{ fontFamily: "Poppins", fontSize: 12, fontWeight: 700, color: "white", textTransform: "uppercase", letterSpacing: 1, marginBottom: 12 }}>{col.t}</h4>{col.l.map(l => <a key={l} href="#" onClick={(e) => { e.preventDefault(); if(l==="WhatsApp") openWA(); }} style={{ display: "block", fontSize: 12, color: "#6B7F95", textDecoration: "none", padding: "3px 0" }} onMouseEnter={e=>e.target.style.color="white"} onMouseLeave={e=>e.target.style.color="#6B7F95"}>{l}</a>)}</div>)}
+          </div>
+          <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,.05)", marginBottom: 16 }}/>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}><span style={{ fontSize: 11, color: "#6B7F95" }}>© 2026 Doorstep Car Wash SARL. Koura, North Lebanon.</span><span style={{ fontSize: 11, color: "#4A6178" }}>Tue–Sat: 8:30 AM – 6:00 PM | Sun: 8:00 AM – 12:00 PM</span></div>
+        </div>
+      </footer>
+
+      {/* WAB FAB */}
+      <a href="#" onClick={(e) => { e.preventDefault(); openWA(); }} title="Book on WhatsApp" style={{ position: "fixed", bottom: 22, right: 22, zIndex: 999, width: 58, height: 58, borderRadius: "50%", background: C.whatsapp, color: "white", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 24px rgba(37,211,102,.4)", animation: "pulse 3s infinite", textDecoration: "none", cursor: "pointer" }}>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  );
+}
+
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<DoorstepWebsite/>);
+  </script>
+</body>
+</html>
