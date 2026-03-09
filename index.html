@@ -26,41 +26,78 @@ const WISH_NUM = "81 555 021";
 const PHONE_DISPLAY = "81 555 021";
 const openWA = (msg) => { const url = msg ? `https://wa.me/${WA_NUM}?text=${encodeURIComponent(msg)}` : WA_LINK; window.open(url, "_blank", "noopener,noreferrer"); };
 
+
 const C = {
-  blue: "#0A7EA4", blueDark: "#086B8A", blueLight: "#E8F4F8",
+  blue: "#00007A", blueDark: "#000061", blueLight: "#EAEAFF",
   green: "#2D9B6E", greenLight: "#E6F5F0", greenDark: "#1F7A54",
   white: "#FFFFFF", charcoal: "#2C3E50", gray: "#7F8C8D",
   grayLight: "#F5F7FA", whatsapp: "#25D366",
 };
 
 const LogoIcon = ({ size = 36 }) => {
-  const uid = `li${size}${Math.random().toString(36).slice(2,6)}`;
+  const uid = "li" + size + Math.random().toString(36).slice(2,5);
   return (
-    <svg width={size} height={size * 1.15} viewBox="0 0 100 115" fill="none">
-      <defs><linearGradient id={uid} x1="50" y1="5" x2="50" y2="110" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#1A9CC7"/><stop offset="100%" stopColor="#0868A0"/></linearGradient></defs>
-      <path d="M50 5C25 5 5 28 5 50c0 28 45 60 45 60s45-32 45-60C95 28 75 5 50 5z" fill={`url(#${uid})`}/>
-      <circle cx="50" cy="48" r="30" fill="#fff" opacity=".95"/>
-      <g transform="translate(28,36)"><path d="M6 16l4-10c1-2 3-4 5-4h14c2 0 4 2 5 4l4 10h2c2 0 4 2 4 4v4c0 2-2 4-4 4H4c-2 0-4-2-4-4v-4c0-2 2-4 4-4z" fill="#2D9B6E"/><path d="M12 15l3-8c.5-1.5 1.5-2 3-2h3v10z" fill="#fff" opacity=".85"/><path d="M23 5h3c1.5 0 2.5.5 3 2l3 8h-9z" fill="#fff" opacity=".85"/><circle cx="10" cy="28" r="5" fill="#3A3A3A"/><circle cx="10" cy="28" r="2.5" fill="#666"/><circle cx="34" cy="28" r="5" fill="#3A3A3A"/><circle cx="34" cy="28" r="2.5" fill="#666"/></g>
+    <svg width={size} height={size * 1.3} viewBox="0 0 200 260" fill="none">
+      <defs>
+        <linearGradient id={uid+"a"} x1="100" y1="0" x2="100" y2="260" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#2E9BD6"/><stop offset="50%" stopColor="#1A7BBF"/><stop offset="100%" stopColor="#00007A"/>
+        </linearGradient>
+        <linearGradient id={uid+"b"} x1="70" y1="100" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#4DB848"/><stop offset="100%" stopColor="#2D9B3E"/>
+        </linearGradient>
+      </defs>
+      <path d="M100 8C52 8 14 46 14 94c0 58 86 158 86 158s86-100 86-158C186 46 148 8 100 8z" fill={`url(#${uid}a)`}/>
+      <circle cx="100" cy="88" r="62" fill="white"/>
+      <path d="M42 128Q60 118 80 124Q100 130 120 122Q140 114 158 120" stroke="#7FC4E8" strokeWidth="8" fill="none" strokeLinecap="round"/>
+      <path d="M50 142Q70 132 90 138Q110 144 130 136Q145 130 155 134" stroke="#7FC4E8" strokeWidth="5" fill="none" strokeLinecap="round" opacity=".4"/>
+      <g transform="translate(56,72)">
+        <path d="M8 28L16 8C18 4 22 2 26 2H62C66 2 70 4 72 8L80 28H84C86 28 88 30 88 32V40C88 42 86 44 84 44H4C2 44 0 42 0 40V32C0 30 2 28 4 28Z" fill={`url(#${uid}b)`}/>
+        <path d="M24 26L30 10C31 7 33 6 35 6H42V26Z" fill="white" opacity=".7"/>
+        <path d="M47 6H54C56 6 58 7 59 10L65 26H47Z" fill="white" opacity=".7"/>
+        <rect x="2" y="30" width="7" height="5" rx="2" fill="#F4D03F" opacity=".85"/>
+        <rect x="79" y="30" width="7" height="5" rx="2" fill="#E74C3C" opacity=".7"/>
+        <circle cx="20" cy="46" r="9" fill="#2C3E50"/><circle cx="20" cy="46" r="5" fill="#5D6D7E"/><circle cx="20" cy="46" r="2" fill="#95A5A6"/>
+        <circle cx="68" cy="46" r="9" fill="#2C3E50"/><circle cx="68" cy="46" r="5" fill="#5D6D7E"/><circle cx="68" cy="46" r="2" fill="#95A5A6"/>
+      </g>
     </svg>
   );
 };
 
 const Logo1 = ({ size = 80, showText = true, white = false }) => {
-  const s = size / 80;
-  const uid = `pg${size}${Math.random().toString(36).slice(2,6)}`;
+  const uid = "lg" + size + Math.random().toString(36).slice(2,5);
+  const f = white ? "brightness(0) invert(1)" : "none";
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: showText ? 6 * s : 0 }}>
-      <svg width={size} height={size * 1.15} viewBox="0 0 100 115" fill="none">
-        <defs><linearGradient id={uid} x1="50" y1="5" x2="50" y2="110" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#1A9CC7"/><stop offset="60%" stopColor="#0A7EA4"/><stop offset="100%" stopColor="#0868A0"/></linearGradient></defs>
-        <path d="M50 5C25 5 5 28 5 50c0 28 45 60 45 60s45-32 45-60C95 28 75 5 50 5z" fill={`url(#${uid})`}/>
-        <circle cx="50" cy="48" r="30" fill="#fff" opacity=".95"/>
-        <g transform="translate(28,36)"><path d="M6 16l4-10c1-2 3-4 5-4h14c2 0 4 2 5 4l4 10h2c2 0 4 2 4 4v4c0 2-2 4-4 4H4c-2 0-4-2-4-4v-4c0-2 2-4 4-4z" fill="#2D9B6E"/><path d="M12 15l3-8c.5-1.5 1.5-2 3-2h3v10z" fill="#fff" opacity=".85"/><path d="M23 5h3c1.5 0 2.5.5 3 2l3 8h-9z" fill="#fff" opacity=".85"/><circle cx="10" cy="28" r="5" fill="#3A3A3A"/><circle cx="10" cy="28" r="2.5" fill="#666"/><circle cx="34" cy="28" r="5" fill="#3A3A3A"/><circle cx="34" cy="28" r="2.5" fill="#666"/><rect x="1" y="18" width="4" height="3" rx="1" fill="#F4D03F" opacity=".8"/><rect x="39" y="18" width="4" height="3" rx="1" fill="#F4D03F" opacity=".8"/></g>
-        <path d="M20 75Q35 68 50 75Q65 82 80 75" stroke="#fff" strokeWidth="2" fill="none" opacity=".3"/>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", filter: f }}>
+      <svg width={size} height={size * 1.3} viewBox="0 0 200 260" fill="none">
+        <defs>
+          <linearGradient id={uid+"a"} x1="100" y1="0" x2="100" y2="260" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#2E9BD6"/><stop offset="50%" stopColor="#1A7BBF"/><stop offset="100%" stopColor="#00007A"/>
+          </linearGradient>
+          <linearGradient id={uid+"b"} x1="70" y1="100" x2="130" y2="130" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#4DB848"/><stop offset="100%" stopColor="#2D9B3E"/>
+          </linearGradient>
+          <linearGradient id={uid+"c"} x1="40" y1="130" x2="160" y2="130" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#B5DCF0"/><stop offset="100%" stopColor="#7FC4E8"/>
+          </linearGradient>
+        </defs>
+        <path d="M100 8C52 8 14 46 14 94c0 58 86 158 86 158s86-100 86-158C186 46 148 8 100 8z" fill={`url(#${uid}a)`}/>
+        <circle cx="100" cy="88" r="62" fill="white"/>
+        <path d="M42 128Q60 118 80 124Q100 130 120 122Q140 114 158 120" stroke={`url(#${uid}c)`} strokeWidth="8" fill="none" strokeLinecap="round"/>
+        <path d="M50 142Q70 132 90 138Q110 144 130 136Q145 130 155 134" stroke={`url(#${uid}c)`} strokeWidth="5" fill="none" strokeLinecap="round" opacity=".4"/>
+        <g transform="translate(56,72)">
+          <path d="M8 28L16 8C18 4 22 2 26 2H62C66 2 70 4 72 8L80 28H84C86 28 88 30 88 32V40C88 42 86 44 84 44H4C2 44 0 42 0 40V32C0 30 2 28 4 28Z" fill={`url(#${uid}b)`}/>
+          <path d="M24 26L30 10C31 7 33 6 35 6H42V26Z" fill="white" opacity=".7"/>
+          <path d="M47 6H54C56 6 58 7 59 10L65 26H47Z" fill="white" opacity=".7"/>
+          <rect x="2" y="30" width="7" height="5" rx="2" fill="#F4D03F" opacity=".85"/>
+          <rect x="79" y="30" width="7" height="5" rx="2" fill="#E74C3C" opacity=".7"/>
+          <circle cx="20" cy="46" r="9" fill="#2C3E50"/><circle cx="20" cy="46" r="5" fill="#5D6D7E"/><circle cx="20" cy="46" r="2" fill="#95A5A6"/>
+          <circle cx="68" cy="46" r="9" fill="#2C3E50"/><circle cx="68" cy="46" r="5" fill="#5D6D7E"/><circle cx="68" cy="46" r="2" fill="#95A5A6"/>
+        </g>
       </svg>
-      {showText && <div style={{ textAlign: "center", marginTop: -2 * s }}><p style={{ fontFamily: "Poppins,sans-serif", fontSize: 16 * s, fontWeight: 700, color: white ? "#fff" : C.charcoal, margin: 0, lineHeight: 1.2 }}>Doorstep</p><p style={{ fontFamily: "Poppins,sans-serif", fontSize: 12 * s, fontWeight: 600, color: white ? "rgba(255,255,255,.75)" : C.green, margin: 0, letterSpacing: .5 }}>Car Wash</p></div>}
     </div>
   );
 };
+
 
 function useReveal() {
   const ref = useRef(null);
@@ -103,7 +140,7 @@ function AppPhone({ screen, active }) {
   const bg = `linear-gradient(165deg, ${C.blue} 0%, ${C.greenDark} 100%)`;
   const screens = {
     home: <div style={{ padding: "14px 12px", display: "flex", flexDirection: "column", gap: 8, height: "100%", background: C.grayLight }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 6 }}><LogoIcon size={22}/><div><p style={{ fontFamily: "Poppins", fontSize: 11, fontWeight: 700, color: C.charcoal, margin: 0 }}>Good Morning!</p><p style={{ fontSize: 9, color: C.gray, margin: 0 }}>Koura, Lebanon</p></div></div>
+      <div style={{ display: "flex", alignItems: "center", gap: 6 }}><LogoIcon size={18}/><div><p style={{ fontFamily: "Poppins", fontSize: 11, fontWeight: 700, color: C.charcoal, margin: 0 }}>Good Morning!</p><p style={{ fontSize: 9, color: C.gray, margin: 0 }}>Koura, Lebanon</p></div></div>
       <div style={{ background: bg, borderRadius: 12, padding: "10px 12px", color: "white" }}><p style={{ fontFamily: "Poppins", fontSize: 9, fontWeight: 600, margin: 0, opacity: .8 }}>Active Plan</p><p style={{ fontFamily: "Poppins", fontSize: 14, fontWeight: 800, margin: "2px 0 4px" }}>4 Washes/Month</p><div style={{ background: "rgba(255,255,255,.2)", borderRadius: 6, height: 5 }}><div style={{ width: "50%", height: "100%", background: "#5CEBA0", borderRadius: 6 }}/></div><p style={{ fontSize: 8, margin: "3px 0 0", opacity: .7 }}>2 of 4 remaining</p></div>
       <p style={{ fontFamily: "Poppins", fontSize: 10, fontWeight: 700, color: C.charcoal, margin: "2px 0 0" }}>Quick Book</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>{[{n:"Inside",p:"$5"},{n:"Outside",p:"$5"},{n:"Simple",p:"$8"},{n:"CUV/Jeep",p:"$10"}].map(s=><div key={s.n} style={{ background: "white", borderRadius: 10, padding: "8px 10px", border: `1px solid ${C.blueLight}` }}><p style={{ fontSize: 9, fontWeight: 600, color: C.charcoal, margin: 0 }}>{s.n}</p><p style={{ fontFamily: "Poppins", fontSize: 14, fontWeight: 800, color: C.blue, margin: 0 }}>{s.p}</p></div>)}</div>
@@ -124,7 +161,7 @@ function AppPhone({ screen, active }) {
     </div>,
   };
   return (
-    <div style={{ width: 200, height: 400, borderRadius: 28, background: "#1a1a2e", border: "3px solid rgba(255,255,255,0.1)", boxShadow: active ? "0 30px 80px rgba(10,126,164,.25)" : "0 20px 60px rgba(0,0,0,.2)", overflow: "hidden", display: "flex", flexDirection: "column", transition: "all .4s", transform: active ? "scale(1.05)" : "scale(.95)", opacity: active ? 1 : .6, flexShrink: 0 }}>
+    <div style={{ width: 200, height: 400, borderRadius: 28, background: "#1a1a2e", border: "3px solid rgba(255,255,255,0.1)", boxShadow: active ? "0 30px 80px rgba(0,0,122,.25)" : "0 20px 60px rgba(0,0,0,.2)", overflow: "hidden", display: "flex", flexDirection: "column", transition: "all .4s", transform: active ? "scale(1.05)" : "scale(.95)", opacity: active ? 1 : .6, flexShrink: 0 }}>
       <div style={{ height: 28, display: "flex", alignItems: "center", justifyContent: "center", background: "#1a1a2e" }}><div style={{ width: 50, height: 5, borderRadius: 3, background: "rgba(255,255,255,.15)" }}/></div>
       <div style={{ flex: 1, overflow: "hidden" }}>{screens[screen]}</div>
     </div>
@@ -146,7 +183,7 @@ function DoorstepWebsite() {
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap');*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.3)}50%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@media(max-width:900px){.dsk{display:none!important}.mob{display:flex!important}}@media(max-width:768px){.g2{grid-template-columns:1fr!important}.g4{grid-template-columns:repeat(2,1fr)!important}.g5{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:500px){.g4{grid-template-columns:1fr!important}.g5{grid-template-columns:1fr!important}}`}</style>
 
       {/* NAV */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: scrolled ? "8px 0" : "14px 0", background: scrolled ? "rgba(255,255,255,.95)" : "transparent", backdropFilter: scrolled ? "blur(20px)" : "none", boxShadow: scrolled ? "0 1px 20px rgba(10,126,164,.08)" : "none", transition: "all .35s" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, padding: scrolled ? "8px 0" : "14px 0", background: scrolled ? "rgba(255,255,255,.95)" : "transparent", backdropFilter: scrolled ? "blur(20px)" : "none", boxShadow: scrolled ? "0 1px 20px rgba(0,0,122,.08)" : "none", transition: "all .35s" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div onClick={() => go("hero")} style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}><LogoIcon size={30}/><span style={{ fontFamily: "Poppins", fontWeight: 800, fontSize: 17, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Doorstep</span></div>
           <div className="dsk" style={{ display: "flex", alignItems: "center", gap: 24 }}>
@@ -160,8 +197,8 @@ function DoorstepWebsite() {
       {mob && <div style={{ position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,.5)" }} onClick={() => setMob(false)}><div style={{ width: 280, height: "100%", background: "white", marginLeft: "auto", padding: 24, display: "flex", flexDirection: "column", gap: 6 }} onClick={e => e.stopPropagation()}><button onClick={() => setMob(false)} style={{ alignSelf: "flex-end", background: "none", border: "none", cursor: "pointer", color: C.gray, marginBottom: 12 }}>{Ic.close}</button>{navs.map(n => <div key={n.id} onClick={() => go(n.id)} style={{ padding: "12px 14px", borderRadius: 10, fontFamily: "Poppins", fontWeight: 600, fontSize: 15, color: C.charcoal, cursor: "pointer" }}>{n.l}</div>)}<a href="#" onClick={(e) => { e.preventDefault(); openWA(); }} style={{ marginTop: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: C.whatsapp, color: "white", padding: 14, borderRadius: 14, fontFamily: "Poppins", fontWeight: 700, textDecoration: "none" }}>{Ic.wa} Book on WhatsApp</a></div></div>}
 
       {/* HERO */}
-      <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", background: "linear-gradient(160deg,#0C1B2A 0%,#0a2942 40%,#082E3F 100%)", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 50% at 65% 35%,rgba(10,126,164,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 25% 80%,rgba(45,155,110,.12) 0%,transparent 60%)" }}/>
+      <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", background: "linear-gradient(160deg,#000030 0%,#00003A 40%,#000028 100%)", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 50% at 65% 35%,rgba(0,0,122,.2) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 25% 80%,rgba(45,155,110,.12) 0%,transparent 60%)" }}/>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px)", backgroundSize: "50px 50px" }}/>
         <div className="g2" style={{ maxWidth: 1200, margin: "0 auto", padding: "120px 24px 80px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 50, alignItems: "center", position: "relative", zIndex: 2 }}>
           <div style={{ animation: "fadeIn .8s ease" }}>
@@ -194,7 +231,7 @@ function DoorstepWebsite() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10 }}>How It Works</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: C.charcoal, marginBottom: 10 }}>Clean Car in 3 Simple Steps</h2><p style={{ fontSize: 15, color: C.gray, lineHeight: 1.7, maxWidth: 500 }}>No apps required. Just message us on WhatsApp and we handle everything.</p></Reveal>
           <div className="g2" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, marginTop: 44 }}>
-            {[{n:"01",ic:Ic.wa,t:"Message on WhatsApp",d:"Send your location pin, car type, service, and time. We confirm within 15 minutes.",c:C.whatsapp},{n:"02",ic:Ic.car,t:"We Come to You",d:"Our uniformed team arrives with water tank, pressure washer, vacuum, and professional supplies.",c:C.blue},{n:"03",ic:Ic.sparkle,t:"Sparkling Results",d:"Your car is cleaned in 30 minutes. Pay — cash, card, or mobile wallet. Rate us and rebook!",c:C.green}].map((s,i) => <Reveal key={s.n} delay={i*.1}><div style={{ background: "white", borderRadius: 22, padding: "32px 24px", position: "relative", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,.04)", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-5px)";e.currentTarget.style.boxShadow="0 12px 36px rgba(10,126,164,.1)"}} onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 4px 20px rgba(0,0,0,.04)"}}><span style={{ position: "absolute", top: -10, right: -5, fontFamily: "Poppins", fontSize: 100, fontWeight: 900, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", opacity: .04, lineHeight: 1 }}>{s.n}</span><div style={{ width: 48, height: 48, borderRadius: 12, background: s.c, display: "flex", alignItems: "center", justifyContent: "center", color: "white", marginBottom: 14 }}>{s.ic}</div><h3 style={{ fontFamily: "Poppins", fontSize: 17, fontWeight: 700, color: C.charcoal, marginBottom: 8 }}>{s.t}</h3><p style={{ fontSize: 13, color: C.gray, lineHeight: 1.7 }}>{s.d}</p></div></Reveal>)}
+            {[{n:"01",ic:Ic.wa,t:"Message on WhatsApp",d:"Send your location pin, car type, service, and time. We confirm within 15 minutes.",c:C.whatsapp},{n:"02",ic:Ic.car,t:"We Come to You",d:"Our uniformed team arrives with water tank, pressure washer, vacuum, and professional supplies.",c:C.blue},{n:"03",ic:Ic.sparkle,t:"Sparkling Results",d:"Your car is cleaned in 30 minutes. Pay after — cash, card, or mobile wallet. Rate us and rebook!",c:C.green}].map((s,i) => <Reveal key={s.n} delay={i*.1}><div style={{ background: "white", borderRadius: 22, padding: "32px 24px", position: "relative", overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,.04)", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-5px)";e.currentTarget.style.boxShadow="0 12px 36px rgba(0,0,122,.1)"}} onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 4px 20px rgba(0,0,0,.04)"}}><span style={{ position: "absolute", top: -10, right: -5, fontFamily: "Poppins", fontSize: 100, fontWeight: 900, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", opacity: .04, lineHeight: 1 }}>{s.n}</span><div style={{ width: 48, height: 48, borderRadius: 12, background: s.c, display: "flex", alignItems: "center", justifyContent: "center", color: "white", marginBottom: 14 }}>{s.ic}</div><h3 style={{ fontFamily: "Poppins", fontSize: 17, fontWeight: 700, color: C.charcoal, marginBottom: 8 }}>{s.t}</h3><p style={{ fontSize: 13, color: C.gray, lineHeight: 1.7 }}>{s.d}</p></div></Reveal>)}
           </div>
         </div>
       </section>
@@ -204,17 +241,17 @@ function DoorstepWebsite() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: C.blue, marginBottom: 10 }}>Our Services</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: C.charcoal, marginBottom: 10 }}>A La Carte Car Washes</h2><p style={{ fontSize: 15, color: C.gray, lineHeight: 1.7, maxWidth: 500 }}>Professional results at gas-station prices — completed in 30 minutes at your driveway.</p></Reveal>
           <div className="g2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16, marginTop: 40 }}>
-            {[{n:"Inside Only",d:"Interior vacuum, surface wipe, basic tidying",p:"$5",e:"🧹",bg:C.blueLight},{n:"Outside Only",d:"Exterior wash, wheel cleaning, glass cleaning",p:"$5",e:"💧",bg:C.greenLight},{n:"Simple Wash (Cars)",d:"Complete interior + exterior service",p:"$8",e:"🚗",bg:C.blueLight},{n:"Simple Wash (CUV/Jeep)",d:"Full service for larger vehicles",p:"$10",e:"🚙",bg:C.greenLight},{n:"Headlights Restoration",d:"Professional headlight cleaning & polish",p:"+$10",e:"💡",bg:C.blueLight},{n:"Fleet Packages",d:"Custom pricing for businesses with 2–20 vehicles",p:"Custom",e:"🏢",bg:C.greenLight}].map((s,i) => <Reveal key={s.n} delay={i*.05}><div style={{ display: "flex", alignItems: "center", gap: 14, background: "white", border: `1px solid ${C.grayLight}`, borderRadius: 16, padding: "18px 20px", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.borderColor=C.blue;e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 6px 24px rgba(10,126,164,.07)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor=C.grayLight;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}><div style={{ width: 44, height: 44, borderRadius: 12, background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, flexShrink: 0 }}>{s.e}</div><div style={{ flex: 1 }}><h4 style={{ fontFamily: "Poppins", fontSize: 15, fontWeight: 700, color: C.charcoal, margin: 0 }}>{s.n}</h4><p style={{ fontSize: 12, color: C.gray, margin: "2px 0 0" }}>{s.d}</p></div><div style={{ fontFamily: "Poppins", fontSize: 22, fontWeight: 800, color: C.blue, whiteSpace: "nowrap" }}>{s.p}</div></div></Reveal>)}
+            {[{n:"Inside Only",d:"Interior vacuum, surface wipe, basic tidying",p:"$5",e:"🧹",bg:C.blueLight},{n:"Outside Only",d:"Exterior wash, wheel cleaning, glass cleaning",p:"$5",e:"💧",bg:C.greenLight},{n:"Simple Wash (Cars)",d:"Complete interior + exterior service",p:"$8",e:"🚗",bg:C.blueLight},{n:"Simple Wash (CUV/Jeep)",d:"Full service for larger vehicles",p:"$10",e:"🚙",bg:C.greenLight},{n:"Headlights Restoration",d:"Professional headlight cleaning & polish",p:"+$10",e:"💡",bg:C.blueLight},{n:"Fleet Packages",d:"Custom pricing for businesses with 2–20 vehicles",p:"Custom",e:"🏢",bg:C.greenLight}].map((s,i) => <Reveal key={s.n} delay={i*.05}><div style={{ display: "flex", alignItems: "center", gap: 14, background: "white", border: `1px solid ${C.grayLight}`, borderRadius: 16, padding: "18px 20px", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.borderColor=C.blue;e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 6px 24px rgba(0,0,122,.07)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor=C.grayLight;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}><div style={{ width: 44, height: 44, borderRadius: 12, background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, flexShrink: 0 }}>{s.e}</div><div style={{ flex: 1 }}><h4 style={{ fontFamily: "Poppins", fontSize: 15, fontWeight: 700, color: C.charcoal, margin: 0 }}>{s.n}</h4><p style={{ fontSize: 12, color: C.gray, margin: "2px 0 0" }}>{s.d}</p></div><div style={{ fontFamily: "Poppins", fontSize: 22, fontWeight: 800, color: C.blue, whiteSpace: "nowrap" }}>{s.p}</div></div></Reveal>)}
           </div>
         </div>
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{ padding: "90px 24px", background: "linear-gradient(160deg,#0C1B2A 0%,#0a2942 100%)" }}>
+      <section id="pricing" style={{ padding: "90px 24px", background: "linear-gradient(160deg,#000030 0%,#00003A 100%)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Reveal><p style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, color: "#5CEBA0", marginBottom: 10 }}>Subscription Plans</p><h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,40px)", fontWeight: 800, color: "white", marginBottom: 10 }}>Save More, Wash Regularly</h2><p style={{ fontSize: 15, color: "#7F9BB3", lineHeight: 1.7, maxWidth: 500 }}>Monthly plans with no commitment. Cancel anytime.</p></Reveal>
           <div className="g4" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 48 }}>
-            {[{n:"2 Washes/Month",p:"15",pw:"$7.50/wash",di:"6% off",f:["2 scheduled washes","Interior + exterior","WhatsApp booking","Priority scheduling"],po:false},{n:"3 Washes/Month",p:"20",pw:"$6.67/wash",di:"17% off",f:["3 scheduled washes","Interior + exterior","WhatsApp booking","Priority scheduling","Free headlight check"],po:false},{n:"4 Washes/Month",p:"25",pw:"$6.25/wash",di:"22% off",f:["Weekly washes","Interior + exterior","WhatsApp booking","Top priority","Free headlight check","Loyalty rewards"],po:true},{n:"Family Plan",p:"25",pw:"2 cars, 4 washes",di:"Best value",f:["2 cars included","2 washes/car/month","Interior + exterior","WhatsApp booking","Family priority"],po:false}].map((p,i) => <Reveal key={p.n} delay={i*.08}><div style={{ background: p.po ? "rgba(10,126,164,.12)" : "rgba(255,255,255,.03)", border: `1px solid ${p.po ? C.blue : "rgba(255,255,255,.07)"}`, borderRadius: 20, padding: "28px 20px", position: "relative", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.borderColor=C.blue}} onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.borderColor=p.po?C.blue:"rgba(255,255,255,.07)"}}>{p.po && <div style={{ position: "absolute", top: -11, left: "50%", transform: "translateX(-50%)", background: `linear-gradient(135deg,${C.blue},${C.green})`, color: "white", padding: "3px 14px", borderRadius: 50, fontFamily: "Poppins", fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>Most Popular</div>}<div style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 600, color: "#7F9BB3", marginBottom: 6 }}>{p.n}</div><div style={{ fontFamily: "Poppins", fontSize: 38, fontWeight: 900, color: "white", lineHeight: 1 }}>${p.p}<span style={{ fontSize: 13, fontWeight: 500, color: "#7F9BB3" }}>/mo</span></div><div style={{ fontSize: 12, color: C.green, fontWeight: 600, margin: "4px 0 16px" }}>{p.pw} — {p.di}</div><div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>{p.f.map(f => <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#B8C5D3" }}><span style={{ color: C.green, flexShrink: 0 }}>{Ic.check}</span>{f}</div>)}</div><a href="#" onClick={(e) => { e.preventDefault(); openWA(`Hi! I'd like to subscribe to the ${p.n} plan ($${p.p}/month).`); }} style={{ display: "block", textAlign: "center", padding: 12, borderRadius: 12, fontFamily: "Poppins", fontWeight: 700, fontSize: 12, textDecoration: "none", marginBottom: 8, cursor: "pointer", ...(p.po ? { background: `linear-gradient(135deg,${C.blue},${C.green})`, color: "white" } : { background: "transparent", color: "white", border: "1.5px solid rgba(255,255,255,.12)" }) }}>{Ic.wa} Subscribe via WhatsApp</a><a href="#" onClick={(e) => { e.preventDefault(); openWA(`Hi! I'd like to subscribe to the ${p.n} plan ($${p.p}/month). I'll pay via Whish Money to ${WISH_NUM}.`); }} style={{ display: "block", textAlign: "center", padding: 12, borderRadius: 12, fontFamily: "Poppins", fontWeight: 700, fontSize: 12, textDecoration: "none", cursor: "pointer", background: "#8B5CF6", color: "white" }}>💜 Pay via Whish Money</a><div style={{ textAlign: "center", marginTop: 8, fontSize: 10, color: "rgba(255,255,255,.4)" }}>Whish Money: {WISH_NUM}</div></div></Reveal>)}
+            {[{n:"2 Washes/Month",p:"15",pw:"$7.50/wash",di:"6% off",f:["2 scheduled washes","Interior + exterior","WhatsApp booking","Priority scheduling"],po:false},{n:"3 Washes/Month",p:"20",pw:"$6.67/wash",di:"17% off",f:["3 scheduled washes","Interior + exterior","WhatsApp booking","Priority scheduling","Free headlight check"],po:false},{n:"4 Washes/Month",p:"25",pw:"$6.25/wash",di:"22% off",f:["Weekly washes","Interior + exterior","WhatsApp booking","Top priority","Free headlight check","Loyalty rewards"],po:true},{n:"Family Plan",p:"25",pw:"2 cars, 4 washes",di:"Best value",f:["2 cars included","2 washes/car/month","Interior + exterior","WhatsApp booking","Family priority"],po:false}].map((p,i) => <Reveal key={p.n} delay={i*.08}><div style={{ background: p.po ? "rgba(0,0,122,.12)" : "rgba(255,255,255,.03)", border: `1px solid ${p.po ? C.blue : "rgba(255,255,255,.07)"}`, borderRadius: 20, padding: "28px 20px", position: "relative", transition: "all .3s" }} onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.borderColor=C.blue}} onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.borderColor=p.po?C.blue:"rgba(255,255,255,.07)"}}>{p.po && <div style={{ position: "absolute", top: -11, left: "50%", transform: "translateX(-50%)", background: `linear-gradient(135deg,${C.blue},${C.green})`, color: "white", padding: "3px 14px", borderRadius: 50, fontFamily: "Poppins", fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>Most Popular</div>}<div style={{ fontFamily: "Poppins", fontSize: 13, fontWeight: 600, color: "#7F9BB3", marginBottom: 6 }}>{p.n}</div><div style={{ fontFamily: "Poppins", fontSize: 38, fontWeight: 900, color: "white", lineHeight: 1 }}>${p.p}<span style={{ fontSize: 13, fontWeight: 500, color: "#7F9BB3" }}>/mo</span></div><div style={{ fontSize: 12, color: C.green, fontWeight: 600, margin: "4px 0 16px" }}>{p.pw} — {p.di}</div><div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 20 }}>{p.f.map(f => <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#B8C5D3" }}><span style={{ color: C.green, flexShrink: 0 }}>{Ic.check}</span>{f}</div>)}</div><a href="#" onClick={(e) => { e.preventDefault(); openWA(`Hi! I'd like to subscribe to the ${p.n} plan ($${p.p}/month).`); }} style={{ display: "block", textAlign: "center", padding: 12, borderRadius: 12, fontFamily: "Poppins", fontWeight: 700, fontSize: 12, textDecoration: "none", marginBottom: 8, cursor: "pointer", ...(p.po ? { background: `linear-gradient(135deg,${C.blue},${C.green})`, color: "white" } : { background: "transparent", color: "white", border: "1.5px solid rgba(255,255,255,.12)" }) }}>{Ic.wa} Subscribe via WhatsApp</a><a href="#" onClick={(e) => { e.preventDefault(); openWA(`Hi! I'd like to subscribe to the ${p.n} plan ($${p.p}/month). I'll pay via Whish Money to ${WISH_NUM}.`); }} style={{ display: "block", textAlign: "center", padding: 12, borderRadius: 12, fontFamily: "Poppins", fontWeight: 700, fontSize: 12, textDecoration: "none", cursor: "pointer", background: "#8B5CF6", color: "white" }}>💜 Pay via Whish Money</a><div style={{ textAlign: "center", marginTop: 8, fontSize: 10, color: "rgba(255,255,255,.4)" }}>Whish Money: {WISH_NUM}</div></div></Reveal>)}
           </div>
         </div>
       </section>
@@ -281,12 +318,12 @@ function DoorstepWebsite() {
           <Reveal>
             <div style={{ borderRadius: 22, overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,.08)", border: `1px solid ${C.grayLight}`, marginTop: 32, marginBottom: 40, background: `linear-gradient(135deg, #E8F4F8 0%, #dbeef5 40%, #E6F5F0 100%)`, position: "relative", padding: "40px 20px" }}>
               {/* Map background texture */}
-              <div style={{ position: "absolute", inset: 0, opacity: .06, backgroundImage: "radial-gradient(circle, #0A7EA4 1px, transparent 1px)", backgroundSize: "20px 20px" }}/>
+              <div style={{ position: "absolute", inset: 0, opacity: .06, backgroundImage: "radial-gradient(circle, #00007A 1px, transparent 1px)", backgroundSize: "20px 20px" }}/>
               
               <svg viewBox="0 0 800 420" width="100%" height="auto" style={{ display: "block", position: "relative", zIndex: 1 }}>
                 {/* Mediterranean Sea */}
                 <defs>
-                  <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#0A7EA4" stopOpacity=".12"/><stop offset="100%" stopColor="#0A7EA4" stopOpacity=".04"/></linearGradient>
+                  <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#00007A" stopOpacity=".12"/><stop offset="100%" stopColor="#00007A" stopOpacity=".04"/></linearGradient>
                   <linearGradient id="roadGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#B8C5D3"/><stop offset="100%" stopColor="#9BB0C4"/></linearGradient>
                   <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
                   <filter id="shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity=".15"/></filter>
@@ -294,7 +331,7 @@ function DoorstepWebsite() {
 
                 {/* Sea area (top) */}
                 <path d="M0 0 H800 V100 Q650 130 500 110 Q350 90 200 120 Q100 140 0 115 Z" fill="url(#seaGrad)"/>
-                <text x="400" y="55" textAnchor="middle" fontFamily="Poppins" fontSize="13" fontWeight="600" fill="#0A7EA4" opacity=".35">Mediterranean Sea</text>
+                <text x="400" y="55" textAnchor="middle" fontFamily="Poppins" fontSize="13" fontWeight="600" fill="#00007A" opacity=".35">Mediterranean Sea</text>
 
                 {/* Coastal road */}
                 <path d="M0 125 Q100 140 200 125 Q350 105 500 115 Q650 128 800 110" stroke="url(#roadGrad)" strokeWidth="3" fill="none" strokeDasharray="8 4" opacity=".5"/>
@@ -418,7 +455,7 @@ function DoorstepWebsite() {
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 30% 50%,rgba(255,255,255,.1) 0%,transparent 50%)" }}/>
         <div style={{ maxWidth: 650, margin: "0 auto", position: "relative", zIndex: 2 }}>
           <Reveal>
-            <Logo1 size={60} showText={false} white/>
+            <Logo1 size={70} showText={false} white/>
             <h2 style={{ fontFamily: "Poppins", fontSize: "clamp(26px,4vw,42px)", fontWeight: 900, color: "white", margin: "20px 0 14px" }}>Ready for a Sparkling Clean Car?</h2>
             <p style={{ fontSize: 16, color: "rgba(255,255,255,.85)", marginBottom: 32, lineHeight: 1.75 }}>No app needed to get started. Just WhatsApp us your location, car type, and preferred time. We'll be at your doorstep within your chosen slot.</p>
             <a href="#" onClick={(e) => { e.preventDefault(); openWA(); }} style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "white", color: C.charcoal, padding: "16px 36px", borderRadius: 60, fontFamily: "Poppins", fontWeight: 800, fontSize: 16, textDecoration: "none", boxShadow: "0 12px 40px rgba(0,0,0,.15)" }}><span style={{ color: C.whatsapp }}>{Ic.wa}</span> Book on WhatsApp Now</a>
@@ -428,7 +465,7 @@ function DoorstepWebsite() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: "#0C1B2A", padding: "50px 24px 24px" }}>
+      <footer style={{ background: "#000030", padding: "50px 24px 24px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="g4" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 36, marginBottom: 36 }}>
             <div><div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}><LogoIcon size={26}/><span style={{ fontFamily: "Poppins", fontWeight: 800, fontSize: 15, background: `linear-gradient(135deg,${C.blue},${C.green})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Doorstep Car Wash</span></div><p style={{ fontSize: 12, color: "#6B7F95", lineHeight: 1.7, maxWidth: 260 }}>Professional mobile car wash covering all of Koura district, North Lebanon.</p><div style={{ display: "flex", gap: 8, marginTop: 12 }}><a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: C.charcoal, color: "white", padding: "6px 12px", borderRadius: 8, textDecoration: "none", fontSize: 10 }}>{Ic.apple}<span style={{ fontFamily: "Poppins", fontWeight: 600 }}>App Store</span></a><a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: C.charcoal, color: "white", padding: "6px 12px", borderRadius: 8, textDecoration: "none", fontSize: 10 }}>{Ic.gplay}<span style={{ fontFamily: "Poppins", fontWeight: 600 }}>Google Play</span></a></div></div>
